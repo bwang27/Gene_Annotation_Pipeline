@@ -15,7 +15,7 @@ The beblow script ‘run_maker.sh’ is one example used to run the jobs:
 
 
 echo '=================================================='
-## print local SGE vars
+##print local SGE vars
 echo JOB_ID=$JOB_ID
 echo QUEUE=$QUEUE
 echo SGE_TASK_ID=$SGE_TASK_ID
@@ -25,8 +25,8 @@ echo SUBMIT_TIME=`date`
 echo '=================================================='
 
 #$ -v PATH,CLASSPATH,JARPATH,PERL5LIB,LD_LIBRARY_PATH,DATA_HOME,DATAFC_HOME
-# staging
-# start of template
+#staging
+#start of template
 #$ -l m_mem_free=4G
 #$ -l tmp_free=300G
 #$ -pe mpi 32
@@ -41,7 +41,7 @@ export AUGUSTUS_CONFIG_PATH=/home/data/augustus_config
 mpiexec -n 32 maker -R -g genome.fasta -t 10 -TMP $TMPDIR -fix_nucleotides || { echo JOB_STATUS=ERROR 1>&2; exit; }
 echo "MAKER_RUN IS COMPLETE"
 
-# end of template
+#end of template
 echo '=================================================='
 echo END_TIME=`date`
 echo '=================================================='
