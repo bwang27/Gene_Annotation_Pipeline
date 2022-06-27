@@ -1,84 +1,19 @@
 # Gene_Annotation_Pipeline
 1. Set up each configure file, feed input data, evidence data to the .ctl file, and set parameter as needed.
 
-2. Run the beblow script ‘run_maker.sh’ to annotate the genomes:
+2. Run script ‘run_maker.sh’ to annotate the genomes.
 
-#$ -S /bin/bash
+3). Use the following command to create the final merged gff file. The “-n” option would produce a gff file without genome sequences.
+gff3_merge -s -n -d genome.maker.output/genome_master_datastore_index.log>genome.noseq.gff
 
-#$ -cwd
+7). Generate AED plots.
+/programs/maker/AED_cdf_generator.pl -b 0.025 chr1.noseq.gff > AED_rnd3
+Plot the file AED_rnd3 in Excel or any plotting software. 
 
-#$ -N genome.fasta
-
-#$ -o /maker_run/output/genome.fasta-out.txt
-
-#$ -e /maker_run/error/genome.fasta-err.txt
-
-#$ -terse
-
-###$ -l virtual_free=3.8G
-
-#$ -l m_mem_free=3.8G
-
-###$ –l h_vmem=3.8G
+8). Load the gff file into IGV or JBrowse. Instructions for IGV and JBrowse can be found at:
+IGV: http://software.broadinstitute.org/software/igv/UserGuide
+JBrowse: https://biohpc.cornell.edu/lab/userguide.aspx?a=software&i=357#c
 
 
 
-
-echo '=================================================='
-
-##print local SGE vars
-
-echo JOB_ID=$JOB_ID
-
-echo QUEUE=$QUEUE
-
-echo SGE_TASK_ID=$SGE_TASK_ID
-
-echo TMPDIR=$TMPDIR
-
-echo PWD=$PWD
-
-echo SUBMIT_TIME=`date`
-
-echo '=================================================='
-
-#$ -v PATH,CLASSPATH,JARPATH,PERL5LIB,LD_LIBRARY_PATH,DATA_HOME,DATAFC_HOME
-
-#staging
-
-#start of template
-
-#$ -l m_mem_free=4G
-
-#$ -l tmp_free=300G
-
-#$ -pe mpi 32
-
-unset PERL5LIB
-
-module load EBModules
-
-module load git/2.23.0-GCCcore-8.3.0-nodocs Perl/5.30.0-GCCcore-8.3.0 bzip2/1.0.8-GCCcore-8.3.0
-
-module load AUGUSTUS/3.3.3-foss-2019b
-
-export LD_PRELOAD=/programs/mpich/lib/libmpi.so
-
-export PATH=/programs/mpich/bin:/programs/wublast.old:/programs/trf:/programs/RepeatMasker:/programs/maker/bin:$PATH
-
-#export AUGUSTUS_CONFIG_PATH=/applications/augustus-3.1/config
-
-export AUGUSTUS_CONFIG_PATH=/home/data/augustus_config
-
-mpiexec -n 32 maker -R -g genome.fasta -t 10 -TMP $TMPDIR -fix_nucleotides || { echo JOB_STATUS=ERROR 1>&2; exit; }
-
-echo "MAKER_RUN IS COMPLETE"
-
-#end of templateecho '=================================================='
-
-echo END_TIME=`date`
-
-echo '=================================================='
-
-#################################################
 
