@@ -5,11 +5,11 @@
 
 3. Use the following command to create the final merged gff file. The “-n” option would produce a gff file without genome sequences.
 
-  gff3_merge -s -n -d genome.maker.output/genome_master_datastore_index.log>genome.noseq.gff
+   gff3_merge -s -n -d genome.maker.output/genome_master_datastore_index.log>genome.noseq.gff
 
 4. Generate AED plots.
 
-  /programs/maker/AED_cdf_generator.pl -b 0.025 chr1.noseq.gff > AED_rnd3
+   /programs/maker/AED_cdf_generator.pl -b 0.025 chr1.noseq.gff > AED_rnd3
 
 Plot the file AED_rnd3 in Excel or any plotting software. 
 
