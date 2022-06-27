@@ -15,6 +15,7 @@ The beblow script ‘run_maker.sh’ is one example used to run the jobs:
 
 
 echo '=================================================='
+
 ##print local SGE vars
 echo JOB_ID=$JOB_ID
 echo QUEUE=$QUEUE
