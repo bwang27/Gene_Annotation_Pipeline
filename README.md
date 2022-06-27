@@ -1,6 +1,7 @@
 # Gene_Annotation_Pipeline
+1. Set up each configure file, feed input data, evidence data to the .ctl file, and set parameter as needed.
 
-The beblow script ‘run_maker.sh’ is one example used to run the jobs:
+2. Run the beblow script ‘run_maker.sh’ to annotate the genomes:
 
 #$ -S /bin/bash
 
