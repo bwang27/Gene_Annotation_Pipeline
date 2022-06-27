@@ -11,7 +11,7 @@
 
    /programs/maker/AED_cdf_generator.pl -b 0.025 chr1.noseq.gff > AED_rnd3
 
-Plot the file AED_rnd3 in Excel or any plotting software. 
+   Plot the file AED_rnd3 in Excel or any plotting software. 
 
 5. Load the gff file into IGV or JBrowse. Instructions for IGV and JBrowse can be found at:
 IGV: http://software.broadinstitute.org/software/igv/UserGuide
