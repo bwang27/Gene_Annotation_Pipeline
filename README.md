@@ -14,7 +14,9 @@
    Plot the file AED_rnd3 in Excel or any plotting software. 
 
 5. Load the gff file into IGV or JBrowse. Instructions for IGV and JBrowse can be found at:
+
 IGV: http://software.broadinstitute.org/software/igv/UserGuide
+
 JBrowse: https://biohpc.cornell.edu/lab/userguide.aspx?a=software&i=357#c
 
 
