@@ -3,14 +3,23 @@
 The beblow script ‘run_maker.sh’ is one example used to run the jobs:
 
 #$ -S /bin/bash
+
 #$ -cwd
+
 #$ -N genome.fasta
+
 #$ -o /maker_run/output/genome.fasta-out.txt
+
 #$ -e /maker_run/error/genome.fasta-err.txt
+
 #$ -terse
+
 ###$ -l virtual_free=3.8G
+
 #$ -l m_mem_free=3.8G
+
 ###$ –l h_vmem=3.8G
+
 
 
 
